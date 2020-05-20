@@ -1,0 +1,140 @@
+{% extends 'partials/layout.html' %}
+		
+{% block header %}
+{% include "partials/header.html" %}
+{% endblock header %}
+
+{% block item_section %}
+    <!-- SECTION -->
+		<div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- Product main img -->
+					<div class="col-md-5 col-md-push-2">
+						<div id="product-main-img">
+							<div class="product-preview">
+								<img src="{{ object.image.url }}" height=350>
+							</div>
+
+							
+
+							
+						</div>
+					</div>
+					<!-- /Product main img -->
+
+					<!-- Product thumb imgs -->
+				
+							
+						</div>
+					</div>
+					<!-- /Product thumb imgs -->
+
+					<!-- Product details -->
+					<div class="col-md-5">
+						<div class="product-details">
+							<h2 class="product-name">{{ object.title }}</h2>
+							
+							<div>
+								<h3 class="product-price">NRS. {{ object.price }}</h3>
+								<span class="product-available">In Stock</span>
+							</div>
+							<p>{{ object.content }}</p>
+
+							
+
+							<div class="add-to-cart">
+								<a href="{{ object.get_add_to_cart }}">	<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button></a>
+							
+							</div>
+
+							<ul class="product-btns">
+								<li><a href="#"><i class="fa fa-heart-o"></i> add to wishlist</a></li>
+								
+							</ul>
+
+							<ul class="product-links">
+								<li>Category:</li>
+						
+								
+							</ul>
+
+							<ul class="product-links">
+								<li>Share:</li>
+								<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+								<li><a href="#"><i class="fa fa-envelope"></i></a></li>
+							</ul>
+
+						</div>
+					</div>
+					<!-- /Product details -->
+
+					<!-- Product tab -->
+					<div class="col-md-12">
+						<div id="product-tab">
+							<!-- product tab nav -->
+							<ul class="tab-nav">
+								<li class="active"><a data-toggle="tab" href="#tab1">Description</a></li>
+								<li><a data-toggle="tab" href="#tab2">Details</a></li>
+								
+							</ul>
+							<!-- /product tab nav -->
+
+							<!-- product tab content -->
+							<div class="tab-content">
+								<!-- tab1  -->
+								<div id="tab1" class="tab-pane fade in active">
+									<div class="row">
+										<div class="col-md-12">
+											<p>{{ object.content }}</p>
+										</div>
+									</div>
+								</div>
+								<!-- /tab1  -->
+
+								<!-- tab2  -->
+								<div id="tab2" class="tab-pane fade in">
+									<div class="row">
+										<div class="col-md-12">
+                                            <ul><strong>Title : </strong>{{ object.title }}</ul>
+                                            <ul><strong>Price : </strong>NRS. {{ object.price }}</ul>
+                                            <ul><strong>DateofPublish : </strong>{{ object.dateofpublish }}</ul>
+                                            <ul><strong>Author : </strong>{{ object.author }}</ul>
+                                            <ul><strong>Publisher_by: </strong>{{ object.published_by }}</ul>
+
+										</div>
+									</div>
+								</div>
+								<!-- /tab2  -->
+
+								
+							</div>
+							<!-- /product tab content  -->
+						</div>
+					</div>
+					<!-- /product tab -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+		<!-- /SECTION -->
+
+		{% comment %} <!-- Section -->
+		
+		<!-- /Section --> {% endcomment %}
+{% endblock item_section %}
+
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}
+{% include "partials/scripts.html" %}
+{% endblock scripts %}
+

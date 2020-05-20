@@ -1,0 +1,9 @@
+<h1>BOok list </h1>
+{% for obj in object_list %}
+
+<ul>
+
+
+<li><a href="{{obj.get_absolute_url}} ">   {{obj.title}}</a></li> 
+</ul>
+{% endfor %}

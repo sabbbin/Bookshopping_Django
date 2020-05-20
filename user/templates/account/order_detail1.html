@@ -1,0 +1,29 @@
+
+
+{{object.user}}
+ 
+     
+           {%  for a in object.books.all %}   
+       
+           <li>{{a.totalprice}}</li>
+            <li>{{a.Price}}</li>
+           <li>{{a.book}}</li>
+           <li>{{a.quantity}}</li>
+               
+
+           <a href="{% url 'removetocart' slug=a.book %}"><input type="button" value="cancle  "></a>   
+          </p>
+         
+           {% endfor %}
+           <li>{{a.quantity}}<a href="{% url 'list_book' %}"><input type="button" value="go to list "></a>
+         
+
+<li>
+    <input type="text" value="{{sum}}"">
+    <a href="{% url 'delete' %}"><input type="button" value="buy  "></a> 
+    <a href="{% url 'logout' %}"><input type="button" value="logout  "></a> 
+</li>
+
+           
+          
+  

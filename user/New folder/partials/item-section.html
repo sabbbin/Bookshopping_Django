@@ -1,0 +1,81 @@
+{% load static %}
+
+<div class="container">
+  <!-- row -->
+  <div class="row">
+    
+
+	{% for category in categories %}
+		<!-- shop -->
+      <div class="col-md-4 col-xs-6">
+        <div class="shop">
+          <div class="shop-img">
+            <img src="{{ category.cover_image.url }}" height=350>
+          </div>
+          <div class="shop-body">
+            <h3>{{ category }}<br />Collection</h3>
+            <a href="{% url 'category_book' category.title %}" class="cta-btn">Shop now <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    <!-- /shop -->
+	{% endfor %}
+	    
+  </div>
+  <!-- /row -->
+
+ 
+  <div>
+	<style style="text/css">
+	.scroll-left {
+		height: 50px;	
+		overflow: hidden;
+		position: relative;
+	}
+	.scroll-left p {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		line-height: 50px;
+		text-align: center;
+		/* Starting position */
+		-moz-transform:translateX(100%);
+		-webkit-transform:translateX(100%);	
+		transform:translateX(100%);
+		/* Apply animation to this element */	
+		-moz-animation: scroll-left 20s linear infinite;
+		-webkit-animation: scroll-left 10s linear infinite;
+		animation: scroll-left 20s linear infinite;
+	}
+	/* Move it (define the animation) */
+	@-moz-keyframes scroll-left {
+		0%   { -moz-transform: translateX(100%); }
+		100% { -moz-transform: translateX(-100%); }
+	}
+	@-webkit-keyframes scroll-left {
+		0%   { -webkit-transform: translateX(100%); }
+		100% { -webkit-transform: translateX(-100%); }
+	}
+	@keyframes scroll-left {
+	0%   { 
+		-moz-transform: translateX(100%); /* Browser bug fix */
+		-webkit-transform: translateX(100%); /* Browser bug fix */
+		transform: translateX(100%); 		
+	}
+	100% { 
+		-moz-transform: translateX(-100%); /* Browser bug fix */
+		-webkit-transform: translateX(-100%); /* Browser bug fix */
+		transform: translateX(-100%); 
+		}
+	}
+	</style>
+
+	<div class="scroll-left d-inline p-2 bg-primary" >
+		<p><strong>Buy and Sell the books, notes, guides of Engineering.....</strong></p>
+	</div>
+	
+  </div>
+  <!-- /marquee -->
+</div>

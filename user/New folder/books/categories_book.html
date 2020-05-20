@@ -1,0 +1,90 @@
+{% extends 'partials/layout.html' %}
+		
+{% block header %}
+{% include "partials/header.html" %}
+{% endblock header %}
+
+
+
+{% block new_products %}
+    <div class="section">
+			<!-- container -->
+			<div class="container">
+				<!-- row -->
+				<div class="row">
+					<!-- ASIDE -->
+					
+					<!-- /ASIDE -->
+
+					<!-- STORE -->
+					<div id="store" class="col-md-9">
+						<!-- store top filter -->
+						
+						<!-- /store top filter -->
+
+						<!-- store products -->
+						<div class="row">
+                        {% for books in category_book_list %}
+							<!-- product -->
+							<div class="col-md-4 col-xs-6">
+								<div class="product">
+									<div class="product-img">
+										<img src="{{ books.cover_image.url }}" height=200>
+										<div class="product-label">
+											
+											<span class="new">NEW</span>
+										</div>
+									</div>
+									<div class="product-body">
+										<p class="product-category">{{ category }}</p>
+										<h3 class="product-name"><a href="{{ books.get_absolute_url }}">{{ books.title }}</a></h3>
+										<h4 class="product-price">NRS. {{ books.price }}</h4>
+										<div class="product-rating">
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+											<i class="fa fa-star"></i>
+										</div>
+										{% comment %} <div class="product-btns">
+											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+										</div> {% endcomment %}
+									</div>
+									<div class="add-to-cart">
+										 
+										<a href="{{books.get_add_to_cart_url }}" class="btn btn-primary btn-md">
+											Add to cart
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- /product -->
+                            {% endfor %}
+							
+						</div>
+						<!-- /store products -->
+
+						
+					</div>
+					<!-- /STORE -->
+				</div>
+				<!-- /row -->
+			</div>
+			<!-- /container -->
+		</div>
+{% endblock new_products %}
+
+
+
+
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}
+{% include "partials/scripts.html" %}
+{% endblock scripts %}
+

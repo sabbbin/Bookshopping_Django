@@ -1,0 +1,68 @@
+
+
+{% extends 'partials/layout.html' %}
+		
+{% block header %}
+{% include "partials/header.html" %}
+{% endblock header %}
+
+
+
+{% block new_products %}
+<div class="section">
+    <div class='container '> 
+        <div class='order-summary'>
+
+       
+<table border=1px solid green> 
+    <div class='order-col'>
+    <thead> 
+        <tr>
+            <th><h5>item</h5></th>
+            <th><h5>item</h5></th>
+            <th><h5>item</h5></th>
+            <th><h5>item</h5></th>
+             <th><h5>item</h5></th>
+      
+    </tr>
+    </thead>
+   
+   
+  
+    {% for obj in object %}
+    <tr>
+        <td >{{obj.book}}</td>
+        <td>  <img src="{{ obj.image.url }}" height=100 width="100"></td>
+       
+        
+        <td>{{obj.quantity}}</td>
+        <td><label class='txt1' >{{obj.Price}}</label></td>
+           
+    
+   
+        <td>{{obj.totalprice}}</td>
+       
+    
+
+    </tr>
+   
+    {% endfor %}
+</div>
+</table>
+</div>
+</div>
+</div>
+
+{% endblock new_products %}
+
+
+
+
+
+{% block footer %}
+{% include "partials/footer.html" %}
+{% endblock footer %}
+
+{% block scripts %}
+{% include "partials/scripts.html" %}
+{% endblock scripts %}

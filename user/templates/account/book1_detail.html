@@ -1,0 +1,15 @@
+{% extends "account/base.html"%}
+{% block content %}
+<li>{{object.title}}</li>
+<li>{{object.uploaded}}</li>
+<li>{{object.dateofpublish}}</li>
+<li>{{object.content}}</li>
+<li>{{object.author}}</li>
+<li>{{object.published_by}}</li>
+<li>{{object.price}}</li>
+
+<li><a href="{{object.get_add_to_cart}} ">  Add to cart </a></li> 
+
+
+
+{% endblock %}

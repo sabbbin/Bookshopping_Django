@@ -1,0 +1,94 @@
+{% load static %}
+
+{{request.user}}
+
+
+<div class='section'>
+<div class='container'>
+    <form method="POST">
+<table border=1px solid green> 
+    <thead> 
+        <tr>
+        <th> item</th>
+        <th>image</th>
+        <th>Description</th>
+        
+       
+        <th> quantity</th>
+        <th>perprice</th>
+
+        <th> totalprice</th>
+      
+    </tr>
+    </thead>
+   
+   
+  
+    {% for obj in object.books.all %}
+    <tr>
+        <td >{{obj.book}}</td>
+        <td>  <img src="{{ obj.book.image.url }}" height=100 width="100"></td>
+        <td>{{obj.book.content}}</td>
+        
+        <td>{{obj.quantity}}</td>
+        <td><label class='txt1' >{{obj.Price}}</label></td>
+           
+    
+   
+        <td>{{obj.totalprice}}</td>
+       
+        <td><a href="{% url 'removetocart' slug=obj.book %}"><button class='btn primary-btn ' >Decrease</button></a>  </td>
+
+    </tr>
+   
+    {% endfor %}
+
+    <tr>
+        <td> <a href="{% url 'list_book' %}"><input type="button" value="go to list "></a></td>
+        <td colspan="3"><label class='text-left'>Rs:{{object.sum}}</label></td>
+        
+        <td>
+            <a href="{% url 'historyinsert'  %}"><input type="button" value="buy  "></a>
+        </td>
+        <td>
+            <a href="{% url 'historyview'  %}"><input type="button" value="buy  "></a>
+        </td>
+        <td>
+            <input type="button" name="Sumbit" value="Click here" onclick="addNumbers()"/>
+
+        </td>
+    </tr>
+<li>
+   
+
+
+  
+    </li>
+</table>
+
+</form>
+
+</div>
+</div>
+
+<script>
+
+function addNumbers() {
+        var sum = 0;
+    
+        //iterate through each textboxes and add the values
+        $(".txt1").each(function () {
+            //add only if the value is number
+           alert(this.value)
+                           sum += parseFloat(this.text());
+                alert('hellow')
+        });
+
+        //.toFixed() method will roundoff the final sum to 2 decimal places
+        $("#sum").val(sum.toFixed(2));
+
+        alert(sum)
+        console.log(sum)
+    }
+
+</script>
